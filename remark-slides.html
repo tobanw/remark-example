@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	  <title>Title</title>
+    <meta charset="utf-8">
+<style>
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+body { font-family: 'Droid Serif';}
+h1, h2, h3 {
+font-family: 'Yanone Kaffeesatz';
+font-weight: normal;
+}
+.remark-slide-content { font-size:26px; }
+.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+</style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# HTML as Presentation Technology
+
+### Toban Wiebe
+####University of Pennsylvania,<br/>Department of Economics
+
+![Penn logo](http://www.upenn.edu/webservices/images/logos/shield.color.gif)
+
+---
+
+# Remark.js
+
+- Remark is a lightweight, javascript based presentation platform.
+- You can write [Markdown](https://help.github.com/articles/markdown-basics/) in an HTML file which can be viewed in any browser.
+- Uses [MathJax](https://www.mathjax.org/) to render math
+- Get around the static limitations of `\( \LaTeX \)`
+	- animated gifs
+	- video
+	- audio
+	- interactive graphics
+
+---
+
+# Slides
+
+- slides are written in Markdown
+	- slide separator: `---`
+	- incremental reveal: `--`
+	- presenter notes: `???`
+
+--
+- press `?` to see features
+	- presenter mode and cloning: show the notes on your screen and the clone on the projector
+	- timer
+
+???
+
+Here's a list of stuff to say:
+
+- some notes to myself
+- more stuff
+
+---
+
+# Markdown and HTML
+
+If markdown isn't cutting it, you can always use HTML directly.
+
+<img src="small-world.gif" alt="Sex ratios and marriage rates by education"
+			style="width:80%;"/> 
+
+---
+
+# Math
+
+You can use MathJax to write familiar `\( \LaTeX \)` right in your Markdown:
+
+`\( \phi(x) = \frac{1}{\sqrt{2 \pi}} e^{-\frac{x^2}{2}} \)` and its CDF,
+
+`\[
+\Phi(x) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^x e^{-\frac{s^2}{2}}ds
+\]`
+
+---
+
+# Usage
+
+Remark is very lightweight: all you need to do is open this HTML file in your browser.
+
+To make your own presentation, just copy this file and edit the slides, which are contained within the `<textarea>` tags.
+
+    </textarea>
+	<script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+<script>
+var slideshow = remark.create({
+	countIncrementalSlides: false
+});
+
+// Setup MathJax
+MathJax.Hub.Config({
+	tex2jax: {
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	}
+});
+MathJax.Hub.Queue(function() {
+	$(MathJax.Hub.getAllJax()).map(function(index, elem) {
+		return(elem.SourceElement());
+	}).parent().addClass('has-jax');
+});
+
+MathJax.Hub.Configured();
+</script>
+  </body>
+</html>
